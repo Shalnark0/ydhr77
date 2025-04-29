@@ -16,8 +16,9 @@ pip install -r requirements.txt
 ```bash
 sudo apt update
 sudo apt install postgresql postgresql-contrib
+```
 Создать базу данных и пользователя:
-
+```bash
 sudo -u postgres psql
 ```
 Внутри psql:
@@ -48,8 +49,9 @@ gunicorn -w 4 -b 127.0.0.1:8000 app:app
 ### 1. Установить Nginx
 ```bash
 sudo apt install nginx
+```
 Пример конфигурации /etc/nginx/sites-available/geoapp
-nginx
+```base
 server {
     listen 80;
     server_name your_domain_or_ip;
