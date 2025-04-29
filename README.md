@@ -33,12 +33,15 @@ flask shell
 >>> from app import db
 >>> db.create_all()
 >>> exit()
+```
 ## 🚀 Запуск приложения через Gunicorn
-
+```bash
 gunicorn -w 4 -b 127.0.0.1:8000 app:app
+```
 ## 🌐 Настройка Nginx
-Установить Nginx
 
+### 1 Установить Nginx
+```bash
 sudo apt install nginx
 Пример конфигурации /etc/nginx/sites-available/geoapp
 nginx
@@ -57,8 +60,10 @@ server {
     }
 }
 Замени YOUR_USER на имя своего пользователя.
-
-Активировать конфигурацию
+```
+### Активировать конфигурацию
+```bash
 sudo ln -s /etc/nginx/sites-available/geoapp /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl restart nginx
+```
