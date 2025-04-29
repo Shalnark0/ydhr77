@@ -51,23 +51,25 @@ gunicorn -w 4 -b 127.0.0.1:8000 app:app
 sudo apt install nginx
 ```
 Пример конфигурации /etc/nginx/sites-available/geoapp
-```base
+
+```bash
+sudo nano /etc/nginx/sites-available/geoapp
+```
+```
 server {
     listen 80;
-    server_name your_domain_or_ip;
+    server_name localhost;
 
     location / {
         proxy_pass http://127.0.0.1:8000;
-        include proxy_params;
-        proxy_redirect off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
     }
 
-    location /static/ {
-        alias /home/YOUR_USER/ydhr77/static/;
-    }
+    error_log /var/log/nginx/geoapp_error.log;
+    access_log /var/log/nginx/geoapp_access.log;
 }
 ```
-Замени YOUR_USER на имя своего пользователя.
 
 ### 2. Активировать конфигурацию
 ```bash
