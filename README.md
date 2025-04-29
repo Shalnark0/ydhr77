@@ -1,11 +1,3 @@
-
-
-## 📂 Структура проекта
-
-ydhr77/ ├── app.py ├── models.py ├── requirements.txt ├── text_data.json ├── templates/ │ ├── upload.html │ ├── records.html │ └── map.html ├── .gitignore ├── venv/ (в .gitignore) └── pycache/ (в .gitignore)
-
----
-
 ## ⚙️ Установка и запуск (Ubuntu 22.04+)
 
 ### 1. Клонировать репозиторий
@@ -41,10 +33,10 @@ flask shell
 >>> from app import db
 >>> db.create_all()
 >>> exit()
-🚀 Запуск приложения через Gunicorn
+## 🚀 Запуск приложения через Gunicorn
 
 gunicorn -w 4 -b 127.0.0.1:8000 app:app
-🌐 Настройка Nginx
+## 🌐 Настройка Nginx
 Установить Nginx
 
 sudo apt install nginx
